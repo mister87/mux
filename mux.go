@@ -272,6 +272,20 @@ func (r *Router) UseEncodedPath() *Router {
 }
 
 // ----------------------------------------------------------------------------
+// Custom method for Router
+// ----------------------------------------------------------------------------
+func (r *Router) GetMethodsSwagger() []string {
+	var swagMethods []string
+	for _, route := range r.routes {
+		swagMethods = append(swagMethods, route.routeConf.regexp.path.reverse)
+		_ = swagMethods
+	}
+	return swagMethods
+}
+
+// ----------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------
 // Route factories
 // ----------------------------------------------------------------------------
 
